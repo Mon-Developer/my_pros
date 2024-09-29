@@ -1,3 +1,27 @@
+<?php 
+  $user_name='';
+  $password='';
+$cont=mysqli_connect("localhost","root","","logs_in");
+
+if(isset($_POST["submit"])){
+   $user_name =$_POST['user_name'];
+    $password=$_POST['password'];
+    
+}
+
+$sql="INSERT INTO data_log(userName,password) values('$user_name','$password')";
+
+$que=mysqli_query($cont,$sql);
+if($que){
+    echo "<script> alert('Do you want connect') </script>";
+}
+else{
+    echo "<h1>'connection is not ok'</h1>";
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,24 +38,24 @@
 
 <body>
     <div class="wrapper">
-        <form action="">
+        <form action="" method="POST">
             <h1>Log in</h1>
             <div class="input-box">
-                <input type="text" placeholder="username" required>
+                <input type="text" placeholder="username" required name="user_name">
                 <i class="bi bi-person"></i>
             </div>
 
             <div class="input-box">
-                <input type="text" placeholder="password" required>
+                <input type="text" placeholder="password" required name="password">
             </div>
             <div class="remember-forget">
                 <label>
-                    <input type="checkbox">Remember me
+                    <input type="checkbox" name="">Remember me
                 </label>
                 <a href="#">Forgot password</a>
             </div>
 
-            <button type="submit" class="btn">Log in</button>
+            <button type="submit" class="btn" name="submit">Log in</button>
             <div class="register-link">
                 <p>Don't have an account <span></span><a href="signup_Page.php"><span> Register</span></a></p>
             </div>

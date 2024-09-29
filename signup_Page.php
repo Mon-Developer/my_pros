@@ -24,7 +24,7 @@ if(isset($_POST["sub"])){
 $sql="insert into  store_data(name,F_name,dob,adds,num,num_w,email,password,c_password) values(' $name','$fname','$dob','$adds','$con_number','$what_number','$email','$password','$con_password')";
 $que=mysqli_query($con,$sql);
 if($que){
-    echo "<h1>'connection is ok'</h1>";
+    echo "<script> alert('Do you want connect') </script>";
 }
 else{
     echo "<h1>'connection is not ok'</h1>";
